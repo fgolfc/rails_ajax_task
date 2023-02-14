@@ -1,2 +1,7 @@
-$('#unfavorite_button').hide();
-$('#favorite_button').show();
+$('.favorite-link').click(function(event) {
+  event.preventDefault(); 
+  var url = $(this).attr('href'); 
+  $.post(url, { _method: 'delete' }, function() {
+      $('#favorite_button, #unfavorite_button').toggle();
+  });
+});
