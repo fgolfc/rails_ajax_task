@@ -1,3 +1,0 @@
-$("#favorite-button_<%= @user.id %>").html("<%= j(render 'blog/destroy', blog: @blog) %>");
-$("#favorite-count_<%= @user.id %>").html('<%= link_to "#{ @blog.favorites.length }", favorites_path(@blog) %>');
-$("#favorite-count_<%= current_user.id %>").html('<%= link_to "#{ current_user.blog.favorites.length }", blogs_favorite_path(current_user) %>');
