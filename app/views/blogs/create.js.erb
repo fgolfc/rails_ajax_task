@@ -1,8 +1,3 @@
-$('.favorite-link').click(function(event) {
-  event.preventDefault();
-
-  var url = $(this).attr('href'); 
-  $.post(url, function() {
-    $('#favorite_button, #unfavorite_button').toggle();
-  });
-});
+$("#favorite-button_<%= @blog.id %>").html("<%= j(render 'blog/create', blog: @blog) %>");
+$("#favorite-count_<%= @blog.id %>").html('<%= link_to "#{ @user.favorites.length }", favorite_path(@blog) %>');
+$("#favorite-count_<%= current_user.id %>").html('<%= link_to "#{ current_user.favorites.length }", blog_favorites_path(@blog) %>');
